@@ -1,0 +1,4 @@
+name: EpicJoins
+version: '${version}'
+main: gg.minecrush.epicjoins.EpicJoins
+api-version: '1.20'
