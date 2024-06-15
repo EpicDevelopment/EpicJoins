@@ -1,0 +1,15 @@
+prefix: "&b&lEpicJoins &8»"
+
+join-message: "&8[&a+&8] &a%player% &7has joined the server!"
+welcome-player-broadcast: |
+  &b&l|
+  &b&l| &fWelcome &a%player% &fto the &bMineCrush Network
+  &b&l|
+  &b&l|   &fDiscord: &bdiscord.gg/dupe
+  &b&l|   &fStore: &dstore.minecrush.gg
+  &b&l|
+
+reward-message: "&fYou received &a%amount% %item%&f for welcoming a new player!"
+
+welcomed-player-reward-individual: "&fYou received &a%amount% %item%&f for welcoming a new player!"
+welcomed-player-broadcast: "&6&l⚡ &6%player% &7has just welcomed a new player! &6&l⚡"
