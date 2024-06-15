@@ -11,11 +11,13 @@ import org.bukkit.inventory.ItemStack;
 public class RewardManager {
 
     private final EpicJoins plugin;
-    private Config config;
-    private Lang lang;
+    private final Config config;
+    private final Lang lang;
 
     public RewardManager(EpicJoins plugin) {
         this.plugin = plugin;
+        this.config = plugin.getConfigManager();
+        this.lang = plugin.getLang();
     }
 
     public void rewardPlayer(Player player) {
@@ -26,7 +28,6 @@ public class RewardManager {
         if (material != null) {
             ItemStack reward = new ItemStack(material, amount);
             player.getInventory().addItem(reward);
-            // player.sendMessage("You have been rewarded with " + amount + " " + rewardName + "(s)!");
             player.sendMessage(Color.c(lang.getReplacedMessage("reward-message")));
         } else {
             String prefix = config.getValue("prefix");
