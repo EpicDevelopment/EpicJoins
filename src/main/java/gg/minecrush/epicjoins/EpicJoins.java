@@ -4,29 +4,37 @@ import gg.minecrush.epicjoins.listener.JoinListener;
 import gg.minecrush.epicjoins.rewards.RewardManager;
 import gg.minecrush.epicjoins.storage.Config;
 import gg.minecrush.epicjoins.storage.Lang;
-import gg.minecrush.epicjoins.util.Color;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class EpicJoins extends JavaPlugin {
 
-    private Config config;
-    private Color color;
+    private Config configManager;
     private Lang lang;
     private RewardManager rewardManager;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        lang = new Lang(this, config);
+        configManager = new Config(this); // Initialize Config
+        lang = new Lang(this, configManager); // Pass Config to Lang
         rewardManager = new RewardManager(this);
-        getServer().getPluginManager().registerEvents(new JoinListener(this), this);
+
+        // Register the JoinListener and pass both EpicJoins and Lang instances
+        getServer().getPluginManager().registerEvents(new JoinListener(this, lang), this);
+
+        getLogger().info("EpicJoins has been enabled!");
     }
 
-    public Config config() {
-        return config;
+    @Override
+    public void onDisable() {
+        getLogger().info("EpicJoins has been disabled.");
     }
 
-    public Lang lang() {
+    public Config getConfigManager() {
+        return configManager;
+    }
+
+    public Lang getLang() {
         return lang;
     }
 
