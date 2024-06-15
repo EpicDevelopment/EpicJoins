@@ -12,12 +12,13 @@ public class WelcomeTask extends BukkitRunnable {
     private final EpicJoins plugin;
     private final String playerName;
     private int countdown;
-    private Lang lang;
+    private final Lang lang;
 
     public WelcomeTask(EpicJoins plugin, String playerName) {
         this.plugin = plugin;
         this.playerName = playerName;
         this.countdown = 10;
+        this.lang = plugin.getLang();
     }
 
     @Override
