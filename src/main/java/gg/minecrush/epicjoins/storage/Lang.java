@@ -38,6 +38,10 @@ public class Lang {
         config = YamlConfiguration.loadConfiguration(configFile);
     }
 
+    public List<String> getJoinMessages() {
+        return plugin.getConfig().getStringList("welcome-player-broadcast");
+    }
+
     public String getMessages(String key) {
         String message = config.getString(key);
         if (message == null) {
