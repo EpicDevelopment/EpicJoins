@@ -1,3 +1,5 @@
 joinMessage: "Welcome %player% to our server!"
-reward-item: "DIAMOND"
-reward-amount: 1
+
+reward:
+  command: 'bc Hi'
+  name: 'Hi!'
