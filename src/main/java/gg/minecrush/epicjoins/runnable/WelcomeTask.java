@@ -30,7 +30,6 @@ public class WelcomeTask extends BukkitRunnable {
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (player.getName().equalsIgnoreCase("Welcome " + playerName)) {
-                Bukkit.broadcastMessage(lang.getReplacedMessage("welcomed-player-broadcast"));
                 player.sendMessage(lang.getReplacedMessage("welcomed-player-reward-individual"));
                 plugin.getRewardManager().rewardPlayer(player);
                 this.cancel();
