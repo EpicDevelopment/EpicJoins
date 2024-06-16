@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class JoinListener implements Listener {
 
@@ -23,8 +24,13 @@ public class JoinListener implements Listener {
         event.setJoinMessage(lang.getReplacedMessage("join-message").replace("%player%", event.getPlayer().getName()));
 
         if (!event.getPlayer().hasPlayedBefore()) {
-            Bukkit.broadcastMessage(lang.getReplacedMessage("welcome-player-broadcast").replace("%player%", event.getPlayer().getName()));
+            event.getPlayer().sendMessage(lang.getReplacedMessage("welcome-message").replace("%player%", event.getPlayer().getName()));
             new WelcomeTask(plugin, event.getPlayer().getName()).runTaskTimer(plugin, 0, 20);
         }
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        event.setQuitMessage(lang.getReplacedMessage("quit-message").replace("%player%", event.getPlayer().getName()));
     }
 }
